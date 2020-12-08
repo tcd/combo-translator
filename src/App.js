@@ -121,7 +121,7 @@ class App extends Component {
 
 	outputURL() {
 		let state = encodeURIComponent(this.state.term);
-		let game = encodeURIComponent(this.state.game);
+		let game  = encodeURIComponent(this.state.game);
 		let charA = encodeURIComponent(this.state.character[0]);
 		let charB = encodeURIComponent(this.state.character[1]);
 		let charC = encodeURIComponent(this.state.character[2]);
