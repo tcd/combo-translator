@@ -89,22 +89,23 @@ class App extends Component {
 		// 	item = userinput.toLowerCase().split(CONF['streetfighter'].regex);
 		// }
 
-		let item = this.getInputFromRegex()
 		const imagesContainer = document.querySelector('.images');
+		let item = this.getInputFromRegex()
+		let game = this.state.game;
 		if (imagesContainer) {
 			imagesContainer.innerHTML = '';
 			for (var i = 0; i < item.length; i++) {
-				for (var key in list[this.state.game]) {
-					for (var j = 0; j < list[this.state.game][key].term.length; j++) {
-						if (list[this.state.game][key].term[j] === item[i]) {
-							for (var imgNum = 0; imgNum < list[this.state.game][key].image.length; imgNum++) {
+				for (var key in list[game]) {
+					for (var j = 0; j < list[game][key].term.length; j++) {
+						if (list[game][key].term[j] === item[i]) {
+							for (var imgNum = 0; imgNum < list[game][key].image.length; imgNum++) {
 								let img = document.createElement('img');
-								img.src = String(list[this.state.game][key].image[imgNum]);
-								if (list[this.state.game][key].hasOwnProperty('alt')) {
-									img.alt = String(list[this.state.game][key].alt[imgNum]);
+								img.src = String(list[game][key].image[imgNum]);
+								if (list[game][key].hasOwnProperty('alt')) {
+									img.alt = String(list[game][key].alt[imgNum]);
 								}
 								imagesContainer.appendChild(img).className = String(
-									list[this.state.game][key].size[imgNum]
+									list[game][key].size[imgNum]
 								);
 							}
 						}
